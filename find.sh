@@ -6,7 +6,7 @@ OUTPUT_FILE="result.txt"
 MATCHES=()
 
 for arg in $@; do
-    MATCH="$(grep -ilr --exclude=$OUTPUT_FILE $arg *)\n"
+    MATCH="$(grep -ilr --include=*.txt --exclude=$OUTPUT_FILE $arg)\n"
 
     if [ "$MATCH" == "\n" ]; then
         MATCH="no matches."
